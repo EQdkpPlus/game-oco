@@ -22,20 +22,62 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('oco')) {
 	class oco extends game_generic {
+		public $version			= '0.1';
 		protected $this_game	= 'oco';
-		protected $types		= array('classes', 'races', 'factions', 'filters');
-		public $icons			= array('classes', 'classes_big', 'events', 'races');
+		protected $types		= array('classes', 'races', 'filters');
 		protected $classes		= array();
 		protected $races		= array();
-		protected $factions		= array();
 		protected $filters		= array();
 		public $langs			= array('english');
+
+		protected $class_dependencies = array(
+			array(
+				'name'		=> 'race',
+				'type'		=> 'races',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'parent'	=> false
+			),
+			array(
+				'name'		=> 'class',
+				'type'		=> 'classes',
+				'admin'		=> false,
+				'decorate'	=> true,
+				'primary'	=> true,
+				'colorize'	=> true,
+				'roster'	=> true,
+				'recruitment' => true,
+				'parent'	=> array(
+					'race' => array(
+						0 	=> 'all',		// Unknown
+						1 	=> 'all',		// Humans
+						2 	=> 'all',		// Elves
+						3 	=> 'all',		// Orcs
+						4 	=> 'all',		// Undead
+					),
+				),
+			),
+		);
+		
+		public $default_roles = array(
+			1	=> array(2),
+			2	=> array(1),
+			3	=> array(1,2,3,4),
+			4	=> array(2,4),
+		);
+		
+		protected $class_colors = array(
+			1	=> '#ff0000',
+			2	=> '#008000',
+			3	=> '#800080',
+			4	=> '#ffff00',
+		);
 
 		protected $glang		= array();
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		public $version			= '0.1';		
+		
 
 		/**
 		* Initialises filters
@@ -62,14 +104,6 @@ if(!class_exists('oco')) {
 		* @return array
 		*/
 		public function get_OnChangeInfos($install=false){
-			//classcolors
-			$info['class_color'] = array(
-				1 => '#ff0000',
-				2 => '#008000',
-				3 => '#800080',
-				4 => '#ffff00',
-				
-			);
 			$info['aq'] = array();
 
 			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install

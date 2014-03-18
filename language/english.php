@@ -21,24 +21,24 @@ if ( !defined('EQDKP_INC') ){
 }
 $english_array = array(
 	'classes' => array(
-		0 => 'Unknown',
-		1 => 'Warrior',
-		2 => 'Monk',
-		3 => 'Mage',
-		4 => 'Ranger',
+		0	=> 'Unknown',
+		1	=> 'Warrior',
+		2	=> 'Monk',
+		3	=> 'Mage',
+		4	=> 'Ranger',
 	),
 	'races' => array(
-		'Unknown',
-		'Humans',
-		'Elves',
-		'Orcs',
-		'Undead'
+		0	=> 'Unknown',
+		1	=> 'Humans',
+		2	=> 'Elves',
+		3	=> 'Orcs',
+		4	=> 'Undead'
 	),
 	'roles' => array(
-		1 => array(2),
-		2 => array(1),
-		3 => array(1,2,3,4),
-		4 => array(2,4),
+		1	=> 'Healer',
+		2	=> 'Tank',
+		3	=> 'Damage Dealer',
+		4	=> 'Supporter',
 	),
 	'lang' => array(
 		'oco' => 'Order and Chaos Online',
@@ -46,10 +46,6 @@ $english_array = array(
 		'heavy' => 'Heavy',
 		'light' => 'Cloth',	
 		'medium' => 'Leather',
-		'role1' => 'Healer',
-		'role2' => 'Tank',
-		'role3' => 'Damage Dealer',
-		'role4' => 'Supporter',
 	),
 );
 ?>
