@@ -4,15 +4,14 @@
  * License:		Creative Commons - Attribution-Noncommercial-Share Alike 3.0 Unported
  * Link:		http://creativecommons.org/licenses/by-nc-sa/3.0/
  * -----------------------------------------------------------------------
- * Began:		2009
  * Date:		$Date$
  * -----------------------------------------------------------------------
  * @author		$Author$
- * @copyright	2006-2011 EQdkp-Plus Developer Team
+ * @copyright	2006-2014 EQdkp-Plus Developer Team
  * @link		http://eqdkp-plus.com
  * @package		eqdkp-plus
  * @version		$Rev$
- * 
+ *
  * $Id$
  */
 
@@ -22,13 +21,14 @@ if ( !defined('EQDKP_INC') ){
 
 if(!class_exists('oco')) {
 	class oco extends game_generic {
-		public $version			= '0.1';
-		protected $this_game	= 'oco';
-		protected $types		= array('classes', 'races', 'filters');
-		protected $classes		= array();
-		protected $races		= array();
-		protected $filters		= array();
-		public $langs			= array('english');
+		protected static $apiLevel	= 20;
+		public $version				= '0.1';
+		protected $this_game		= 'oco';
+		protected $types			= array('classes', 'races', 'filters');
+		protected $classes			= array();
+		protected $races			= array();
+		protected $filters			= array();
+		public $langs				= array('english');
 
 		protected $class_dependencies = array(
 			array(
@@ -77,13 +77,7 @@ if(!class_exists('oco')) {
 		protected $lang_file	= array();
 		protected $path			= '';
 		public $lang			= false;
-		
 
-		/**
-		* Initialises filters
-		*
-		* @param array $langs
-		*/
 		protected function load_filters($langs){
 			if(!$this->classes) {
 				$this->load_type('classes', $langs);
@@ -97,20 +91,7 @@ if(!class_exists('oco')) {
 			}
 		}
 
-		/**
-		* Returns Information to change the game
-		*
-		* @param bool $install
-		* @return array
-		*/
-		public function install($install=false){
-			
-
-			//Do this SQL Query NOT if the Eqdkp is installed -> only @ the first install
-			#if($install){
-			#}
-			return $info;
-		}
+		public function install($install=false){}
 	}
 }
 ?>
