@@ -41,11 +41,13 @@ $english_array = array(
 		4	=> 'Supporter',
 	),
 	'lang' => array(
-		'oco' => 'Order and Chaos Online',
-		'plate'	=> 'Plate',
-		'heavy' => 'Heavy',
-		'light' => 'Cloth',	
-		'medium' => 'Leather',
+		'oco'							=> 'Order and Chaos Online',
+		'plate'							=> 'Plate',
+		'heavy'							=> 'Heavy',
+		'light'							=> 'Cloth',	
+		'medium'						=> 'Leather',
+		'uc_race'						=> 'Race',
+		'uc_class'						=> 'Class',
 	),
 );
 ?>
